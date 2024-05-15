@@ -73,6 +73,7 @@ int main(int _argc, char **_argv)
             poin_drm = get_index_dorm (dorms, size_dorm, data_name);
             
             assign_student(std, dorms, poin_std, poin_drm);
+            
         }else if(strcmp(command, "dorm-empty") == 0){
             char data_name[30];
             strcpy(data_name, strtok(NULL, "#"));

@@ -4,12 +4,10 @@ void student_print_detail(struct student_t *_student, unsigned short int _size){
 
     for(int i = 0 ; i<_size; i++){
         char dorm_name[15];
-        if(_student[i].dorm == NULL) strcpy(dorm_name, "left");
-        else strcpy(dorm_name, _student[i].dorm->name);
         
-
+        if(_student[i].dorm == 0) strcpy(dorm_name, "left");
+        else  strcpy(dorm_name, _student[i].dorm->name);
         printf("%s|%s|%s|%s|%s\n", _student[i].id, _student[i].name, _student[i].year, gender_to_text(_student[i].gender), dorm_name);
-
     }
 }
 
@@ -54,6 +52,7 @@ void assign_student(struct student_t *_student, struct dorm_t *_dorm, unsigned s
             if (_dorm[idx_drm].gender == _student[idx_std].gender){
             _student[idx_std].dorm = &_dorm[idx_drm];
             _dorm[idx_drm].residents_num++;
+            
             }
         }
 }
@@ -94,3 +93,4 @@ void student_leave (struct student_t *_student, struct dorm_t *_dorm, struct dor
 
     }
 }
+
